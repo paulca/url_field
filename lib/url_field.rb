@@ -18,7 +18,7 @@ module UrlField
         
         define_method(:cleaned_url_field) do
           return nil if send(field).nil?
-          return "http://#{send(field)}" if send(field)[0,7] != 'http://'
+          return "http://#{send(field)}" unless send(field).match(/https?:\/\/.*$/)
           send(field)
         end
       end

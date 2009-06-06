@@ -31,4 +31,16 @@ describe TestModel do
     @test_model.save
     @test_model.shortcode_url.should == "http://www.example.com"
   end
+  
+  it "should allow https://" do
+    @test_model.shortcode_url = "https://www.example.com"
+    @test_model.save
+    @test_model.shortcode_url.should == "https://www.example.com"
+  end
+
+  it "should ignore https://" do
+    @test_model.shortcode_url = "https://www.example.com"
+    @test_model.save
+    @test_model.shortcode_url.should == "https://www.example.com"
+  end
 end
