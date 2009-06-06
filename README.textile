@@ -18,6 +18,12 @@ end
 @company.website # => "http://www.example.com"
 </code></pre>
 
+Https? That works too (but one way only)
+<pre><code>@company.website = "https://www.example.com"
+@company.save
+@company.website # => "https://www.example.com"
+</code></pre>
+
 h2. Extra
 
 If you want access to the correctly formatted URL at any time (for example if you're passing it to URI.parse), you can call "cleaned_url_field"
