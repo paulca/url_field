@@ -8,8 +8,7 @@ This simple plugin allows you to enter either "http://www.example.com" or just "
 
 h2. Usage
 
-<pre><code>
-class Company < ActiveRecord::Base
+<pre><code>class Company < ActiveRecord::Base
   url_field :website
 end
 
@@ -23,8 +22,7 @@ h2. Install
 
 Easy!
 
-<pre><code>
-./script plugin install git://github.com/paulca/url_field.git
+<pre><code>./script plugin install git://github.com/paulca/url_field.git
 </code></pre>
 
 h2. About me
