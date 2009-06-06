@@ -18,6 +18,19 @@ end
 @company.website # => "http://www.example.com"
 </code></pre>
 
+h2. Extra
+
+If you want access to the correctly formatted URL at any time (for example if you're passing it to URI.parse), you can call "cleaned_url_field"
+
+<pre><code>class Company < ActiveRecord::Base
+  url_field :website
+end
+
+@company = Company.new
+@company.website = "www.example.com"
+@company.cleaned_url_field # => "http://www.example.com"
+</code></pre>
+
 h2. Install
 
 Easy!
