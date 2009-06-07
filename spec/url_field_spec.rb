@@ -43,4 +43,9 @@ describe TestModel do
     @test_model.save
     @test_model.shortcode_url.should == "https://www.example.com"
   end
+  
+  it "should expose the cleaned method" do
+    @test_model.shortcode_url = "www.example.com"
+    @test_model.cleaned_shortcode_url.should == "http://www.example.com"
+  end
 end
