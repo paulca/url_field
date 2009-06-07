@@ -26,7 +26,7 @@ Https? That works too (but one way only)
 
 h2. Extra
 
-If you want access to the correctly formatted URL at any time (for example if you're passing it to URI.parse), you can call "cleaned_url_field"
+If you want access to the correctly formatted URL at any time (for example if you're passing it to URI.parse, before you save your model), you can prefix your URL field method name with "cleaned_" eg. "cleaned_website" if your field name was website:
 
 <pre><code>class Company < ActiveRecord::Base
   url_field :website
@@ -34,7 +34,7 @@ end
 
 @company = Company.new
 @company.website = "www.example.com"
-@company.cleaned_url_field # => "http://www.example.com"
+@company.cleaned_website # => "http://www.example.com"
 </code></pre>
 
 h2. Install
