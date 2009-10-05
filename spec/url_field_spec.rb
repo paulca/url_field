@@ -20,6 +20,12 @@ describe TestModel do
     @test_model.shortcode_url.should be_nil
   end
   
+  it "should REALLY leave well enough alone" do
+    @test_model.shortcode_url = ""
+    @test_model.save
+    @test_model.shortcode_url.should be_nil
+  end
+  
   it "should add http://" do
     @test_model.shortcode_url = "www.example.com"
     @test_model.save

@@ -17,7 +17,7 @@ module UrlField
         private
         
         define_method("cleaned_#{field}") do
-          return nil if send(field).nil?
+          return nil if send(field).nil? or send(field).blank?
           return "http://#{send(field)}" unless send(field).match(/https?:\/\/.*$/)
           send(field)
         end
