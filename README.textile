@@ -26,6 +26,16 @@ Https? That works too (but one way only)
 
 h2. Extra
 
+h3. Multiple fields
+
+If you have multiple url_fields in a single model, just pass them as arguments to the url_field method, eg:
+
+<pre><code>class Company < ActiveRecord::Base
+  url_field :website, :support_website, :more_info_website
+end</code></pre>
+
+h3. Access the correctly formed URL at any time
+
 If you want access to the correctly formatted URL at any time (for example if you're passing it to URI.parse, before you save your model), you can prefix your URL field method name with "cleaned_" eg. "cleaned_website" if your field name was website:
 
 <pre><code>class Company < ActiveRecord::Base
@@ -34,8 +44,7 @@ end
 
 @company = Company.new
 @company.website = "www.example.com"
-@company.cleaned_website # => "http://www.example.com"
-</code></pre>
+@company.cleaned_website # => "http://www.example.com"</code></pre>
 
 h2. Install
 
