@@ -53,4 +53,18 @@ describe TestModel do
     @test_model.url = "www.example.com"
     @test_model.cleaned_url.should == "http://www.example.com"
   end
+  
+  it "should work for other_url" do
+    @test_model.other_url = "www.example.com"
+    @test_model.cleaned_other_url.should == "http://www.example.com"
+    @test_model.save
+    @test_model.other_url.should == "http://www.example.com"
+  end
+  
+  it "should work for another_url" do
+    @test_model.another_url = "www.example.com"
+    @test_model.cleaned_another_url.should == "http://www.example.com"
+    @test_model.save
+    @test_model.another_url.should == "http://www.example.com"
+  end
 end
