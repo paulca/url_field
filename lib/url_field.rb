@@ -4,22 +4,28 @@ module UrlField
   end
 
   module UrlFieldMethod
-    def url_field(field)
+    def url_field(*args)
 
-      before_save :clean_url_field
+      args.each do |field_name|
+        before_save :"clean_#{field_name}_url_field"                    # before_save :clean_url_url_field
+      end
 
       class_eval do        
         
-        define_method(:clean_url_field) do
-          self.send("#{field}=", send("cleaned_#{field}"))
+        args.each do |field_name|
+          define_method(:"clean_#{field_name}_url_field") do              # def clean_url_url_field
+            self.send("#{field_name}=", send("cleaned_#{field_name}"))    #   self.url = cleaned_url
+          end                                                             # end
         end
         
         private
-        
-        define_method("cleaned_#{field}") do
-          return nil if send(field).nil? or send(field).blank?
-          return "http://#{send(field)}" unless send(field).match(/https?:\/\/.*$/)
-          send(field)
+
+        args.each do |field_name|
+          define_method("cleaned_#{field_name}") do
+            return nil if send(field_name).nil? or send(field_name).blank?
+            return "http://#{send(field_name)}" unless send(field_name).match(/https?:\/\/.*$/)
+            send(field_name)
+          end
         end
       end
     end
