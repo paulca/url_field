@@ -7,7 +7,7 @@ module UrlField
     def url_field(*args)
 
       args.each do |field_name|
-        before_save :"clean_#{field_name}_url_field"                    # before_save :clean_url_url_field
+        before_validation :"clean_#{field_name}_url_field"                    # before_save :clean_url_url_field
       end
 
       class_eval do        
