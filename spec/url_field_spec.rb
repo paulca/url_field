@@ -49,6 +49,18 @@ describe TestModel do
     @test_model.url.should == "https://www.example.com"
   end
   
+  it "should ignore HTTP://" do
+    @test_model.url = "HTTP://WWW.EXAMPLE.COM"
+    @test_model.save
+    @test_model.url.should == "HTTP://WWW.EXAMPLE.COM"
+  end
+  
+  it "should ignore HTTPS://" do
+    @test_model.url = "HTTPS://WWW.EXAMPLE.COM"
+    @test_model.save
+    @test_model.url.should == "HTTPS://WWW.EXAMPLE.COM"
+  end
+  
   it "should expose the cleaned method" do
     @test_model.url = "www.example.com"
     @test_model.cleaned_url.should == "http://www.example.com"
