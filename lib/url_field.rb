@@ -23,7 +23,7 @@ module UrlField
         args.each do |field_name|
           define_method("cleaned_#{field_name}") do
             return nil if send(field_name).nil? or send(field_name).blank?
-            return "http://#{send(field_name)}" unless send(field_name).match(/https?:\/\/.*$/)
+            return "http://#{send(field_name)}" unless send(field_name).match(/https?:\/\/.*$/i)
             send(field_name)
           end
         end
