@@ -48,10 +48,13 @@ end
 
 h2. Install
 
-Easy!
+To use it, add it to your Gemfile:
 
-<pre><code>./script plugin install git://github.com/paulca/url_field.git
-</code></pre>
+<pre><code>gem 'url_field', '0.0.3'</code></pre>
+
+and bundle:
+
+<pre><code>bundle</code></pre>
 
 h2. About me
 
